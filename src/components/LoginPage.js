@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 
+import '../styles/styles.scss';
+
 //material-ui
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 //import AppBar from 'material-ui/AppBar';
@@ -15,9 +17,9 @@ const LoginPage = ({ startLogin }) => {
       <div className="box-layout">
         <div className="box-layout__box">
           <h1 className="box-layout__title">Look 4 Rent</h1><br/>
-          <Paper zDepth={3}><br/>
-          <div className="login-container">
-            <h4>Login</h4>
+        </div>
+        <Paper className="login-container" zDepth={3}>
+            <h2 className="login-title">Login </h2>
             <TextField
                 hintText="Enter your Email"
                 floatingLabelText="Username*"
@@ -30,24 +32,24 @@ const LoginPage = ({ startLogin }) => {
                 //onChange = {(event,newValue) => this.setState({password:newValue})}
                 />
               <br/>
-              <RaisedButton label="Submit" primary={true}
+              <RaisedButton label="Login" primary={true}
+              className="button-login"
                //onClick={(event) => this.handleClick(event)}
                />
-          </div>
           <br/>
           <hr/>
           <h3>OR</h3>
-          <RaisedButton className="button" 
-            label="Login with Google" primary={true}
+          <RaisedButton className="google-button" 
+            label="Login with Google" secondary={true}
             onClick={startLogin}
           /><br/><br/>
-          <RaisedButton className="button" 
+          <RaisedButton className="facebook-button" 
             label="Login with Facebook" primary={true}
             onClick={startLogin}
-          /><br/><br/>
+          />
           </Paper>
           
-        </div>
+      
       </div>
     </MuiThemeProvider>
   

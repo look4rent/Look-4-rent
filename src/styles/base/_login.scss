@@ -1,0 +1,29 @@
+
+.box-layout .login-container{
+    margin: auto;
+    width: 400px;
+    text-align: center;
+    display: 'inline-block';
+    padding:25px;
+}
+
+.box-layout .login-container .login-title{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    // font-size: 30px;
+
+}
+
+.box-layout .login-container .button-login{
+    margin: 25px;
+}
+
+.box-layout .login-container .google-button{
+    margin: 5px;
+    margin-bottom: 0%;
+    background-color: red;
+    width: 300px
+}
+.box-layout .login-container .facebook-button{
+    margin: 5px;
+    width: 300px
+}
