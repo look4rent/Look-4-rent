@@ -9,67 +9,189 @@ import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 //import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
-const RegisterPage = () => {
-  return(
-    <MuiThemeProvider>
-      <div className="box-layout">
-        <div className="box-layout__box">
-          <h1 className="box-layout__title">Look 4 Rent</h1>
-          <Paper zDepth={3}>
-          <br/>
-          <div className="register-container">
-            <h4>Register</h4>
-            <TextField
-                hintText="Enter your First Name"
-                floatingLabelText="First Name*"
-                //onChange = {(event,newValue) => this.setState({username:newValue})}
-              /><br/>
-            <TextField
-                hintText="Enter your Last Name"
-                floatingLabelText="Last Name*"
-                //onChange = {(event,newValue) => this.setState({password:newValue})}
-                />
-              <br/>
-            <TextField
-                hintText="eg:xyz@abc.com"
-                floatingLabelText="E-Mail*"
-                //onChange = {(event,newValue) => this.setState({password:newValue})}
-                />
-            <br/>
-            <TextField
-                 hintText="+977 98xxxxxxxx"
-                 floatingLabelText="Mobile Number*"
-                 //onChange = {(event,newValue) => this.setState({password:newValue})}
-                />
-            <br/>
-            <TextField
-                 hintText="+977 98xxxxxxxx"
-                 floatingLabelText="Alternate Number"
-                 //onChange = {(event,newValue) => this.setState({password:newValue})}
-                />
-            <br/>
-            <TextField
-                type="password"
-                hintText="Enter your Password"
-                floatingLabelText="Password*"
-                //onChange = {(event,newValue) => this.setState({password:newValue})}
-                />
-            <br/><br/>
-            <RaisedButton label="Register" primary={true}
-               //onClick={(event) => this.handleClick(event)}
-               />
-          </div>
-          <br/>
-          </Paper>
-          
-          
-        </div>
-      </div>
-    </MuiThemeProvider>
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+const FormItem = Form.Item;
+const Option = Select.Option;
+const AutoCompleteOption = AutoComplete.Option;
+
+class RegistrationForm extends React.Component {
+  state = {
+    confirmDirty: false,
+    autoCompleteResult: [],
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  }
+  handleConfirmBlur = (e) => {
+    const value = e.target.value;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+  }
+  compareToFirstPassword = (rule, value, callback) => {
+    const form = this.props.form;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
+      callback();
+    }
+  }
+  validateToNextPassword = (rule, value, callback) => {
+    const form = this.props.form;
+    if (value && this.state.confirmDirty) {
+      form.validateFields(['confirm'], { force: true });
+    }
+    callback();
+  }
   
-  )
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    const { autoCompleteResult } = this.state;
+
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        xs: {
+          span: 24,
+          offset: 0,
+        },
+        sm: {
+          span: 16,
+          offset: 8,
+        },
+      },
+    };
+    const prefixSelector = getFieldDecorator('prefix', {
+      initialValue: '10',
+    })(
+      <Select style={{ width: 85 }}>
+        <Option value="10">+977</Option>
+      </Select>
+    );
+
+
+    return (
+      <MuiThemeProvider>
+      <Paper className="register-form-container">
+      <Form onSubmit={this.handleSubmit} className="register-form">
+      <h1 className="register-form-container__title">Register</h1>
+        <FormItem
+          {...formItemLayout}
+          label="E-mail"
+        >
+          {getFieldDecorator('email', {
+            rules: [{
+              type: 'email', message: 'The input is not valid E-mail!',
+            }, {
+              required: true, message: 'Please input your E-mail!',
+            }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Password"
+        >
+          {getFieldDecorator('password', {
+            rules: [{
+              required: true, message: 'Please input your password!',
+            }, {
+              validator: this.validateToNextPassword,
+            }],
+          })(
+            <Input type="password" />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Confirm Password"
+        >
+          {getFieldDecorator('confirm', {
+            rules: [{
+              required: true, message: 'Please confirm your password!',
+            }, {
+              validator: this.compareToFirstPassword,
+            }],
+          })(
+            <Input type="password" onBlur={this.handleConfirmBlur} />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label={(
+            <span>
+              Full Name&nbsp;
+              <Tooltip title="Enter your both Firstname and Lastname ">
+                <Icon type="question-circle-o" />
+              </Tooltip>
+            </span>
+          )}
+        >
+          {getFieldDecorator('Fullname', {
+            rules: [{ required: true, message: 'Please enter your fullname !', whitespace: true }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+        
+        <FormItem
+          {...formItemLayout}
+          label="Phone Number"
+        >
+          {getFieldDecorator('phone', {
+            rules: [{ required: true,  message: 'Please input your phone number!' }],
+          })(
+            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Captcha"
+          extra="We must make sure that your are a human."
+        >
+          <Row gutter={8}>
+            <Col span={12}>
+              {getFieldDecorator('captcha', {
+                rules: [{ required: true, message: 'Please input the captcha you got!' }],
+              })(
+                <Input />
+              )}
+            </Col>
+            <Col span={12}>
+              <Button>Get captcha</Button>
+            </Col>
+          </Row>
+        </FormItem>
+        <FormItem {...tailFormItemLayout}>
+          {getFieldDecorator('agreement', {
+            valuePropName: 'checked',
+          })(
+            <Checkbox>I have read the <a href="">agreement</a></Checkbox>
+          )}
+        </FormItem>
+        <FormItem {...tailFormItemLayout}>
+          <Button type="primary" htmlType="submit">Register</Button>
+        </FormItem>
+      </Form>
+      </Paper>
+      </MuiThemeProvider>
+   );
+  }
 }
 
-
-
+const RegisterPage = Form.create()(RegistrationForm);
 export default RegisterPage;
