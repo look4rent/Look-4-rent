@@ -1,29 +1,35 @@
 
-.box-layout .login-container{
-    margin: auto;
-    width: 400px;
+.login-form-container h3{
     text-align: center;
-    display: 'inline-block';
-    padding:25px;
+    font-weight: 100;
 }
 
-.box-layout .login-container .login-title{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    // font-size: 30px;
+
+
+
+.login-form-container__title{
+    text-align: center;
 
 }
-
-.box-layout .login-container .button-login{
-    margin: 25px;
-}
-
-.box-layout .login-container .google-button{
+.google-button{
     margin: 5px;
     margin-bottom: 0%;
-    background-color: red;
-    width: 300px
+    background-color: rgb(212, 65, 65);
+    color:white;
+    width: 100%
 }
-.box-layout .login-container .facebook-button{
+.google-button:hover{
+    border-color: rgb(196, 79, 79);
+    color : rgb(196, 79, 79);
+}
+
+.facebook-button{
     margin: 5px;
-    width: 300px
+    background-color: rgba(59, 110, 250, 0.952);
+    color:white;
+    width: 100%
+}
+.facebook-button:hover{
+    color: rgba(59, 110, 250, 0.952);
+    border-color: rgba(59, 110, 250, 0.952);
 }
