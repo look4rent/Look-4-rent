@@ -1,6 +1,10 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 import React from 'react';
+import Paper from 'material-ui/Paper';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+
 
 class NormalLoginForm extends React.Component {
   handleSubmit = (e) => {
@@ -14,7 +18,10 @@ class NormalLoginForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
+    <MuiThemeProvider>      
+      <Paper className="login-form-container" zDepth={3}>
       <Form onSubmit={this.handleSubmit} className="login-form">
+        <h1 className="login-form-container__title">Login</h1>
         <FormItem>
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }],
@@ -43,6 +50,8 @@ class NormalLoginForm extends React.Component {
           Or <a href="">register now!</a>
         </FormItem>
       </Form>
+      </Paper>
+    </MuiThemeProvider>
     );
   }
 }
