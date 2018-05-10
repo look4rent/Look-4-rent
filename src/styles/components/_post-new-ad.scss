@@ -1,0 +1,22 @@
+
+.box-layout .post-new-ad-container {
+    margin: 50px;
+    height: auto;
+    width: auto;
+    display: 'flex';
+    justify-content: space-evenly;
+    padding:25px;
+}
+
+.image-input {
+    cursor: 'pointer';
+    position: 'absolute';
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: '100%'; 
+}
+.image-input-button {
+    margin: 12px;
+}
