@@ -11,6 +11,7 @@ import PublicRoute from './PublicRoute';
 import HomePage from '../components/HomePage';
 import PostNewAd from '../components/PostNewAd';
 import MyAds from '../components/MyAds';
+import NormalLoginForm from '../components/AntTest';
 
 export const history = createHistory();
 
@@ -23,6 +24,7 @@ const AppRouter = () => (
         <PublicRoute path="/register" component={RegisterPage} /> 
         <PublicRoute path="/myads" component={MyAds} /> 
         <PublicRoute path="/postad" component={PostNewAd} /> 
+        <PublicRoute path="/ant" component={NormalLoginForm} /> 
         <PublicRoute path="/categories" component={Categories} /> 
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <Route component={NotFoundPage} />
