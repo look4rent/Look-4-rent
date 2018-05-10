@@ -4,20 +4,23 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Tooltip, InputNumber, Icon, Cascader,Radio, Select, Row, Col, Checkbox, Button, AutoComplete, Upload, Modal } from 'antd';
 const FormItem = Form.Item;
 const {TextArea} = Input;
 const Option = Select.Option;
-
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
 
 class PostNewAd extends React.Component {
     state = {
-      confirmDirty: false
+      confirmDirty: false,
+      previewVisible: false,
+    previewImage: '',
+    fileList: [],
     };
     handleSubmit = (e) => {
       e.preventDefault();
@@ -44,6 +47,17 @@ class PostNewAd extends React.Component {
         console.log('focus');
       }
     
+    handleCancel = () => this.setState({ previewVisible: false })
+
+  handlePreview = (file) => {
+    this.setState({
+      previewImage: file.url || file.thumbUrl,
+      previewVisible: true,
+    });
+  }
+
+  handleChangePicture = ({ fileList }) => this.setState({ fileList })
+
 
     render() {
       const { getFieldDecorator } = this.props.form;
@@ -70,11 +84,19 @@ class PostNewAd extends React.Component {
           },
         },
       };
+
+    const { previewVisible, previewImage, fileList } = this.state;
+    const uploadButton = (
+      <div>
+        <Icon type="plus" />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    );
       
       return (
         <MuiThemeProvider>      
         <Paper className="post-ad-form-container" zDepth={3}>
-        
+        <h1>Post Ad Form</h1>
         <Form onSubmit={this.handleSubmit}>
         <FormItem
         {...formItemLayout}
@@ -84,6 +106,7 @@ class PostNewAd extends React.Component {
             rules: [{ required: true, message: 'Please select category' }],
           })(
             <Select
+            size="large"
             showSearch
             style={{ width: 200 }}
             placeholder="Category"
@@ -126,6 +149,59 @@ class PostNewAd extends React.Component {
           )}
         </FormItem>
 
+        <FormItem
+          {...formItemLayout}
+          label="Price"
+        >
+          {getFieldDecorator('adPrice', { initialValue: 0 })(
+            <InputNumber size="large" min={1} max={10} />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Price Negotiable"
+        >
+          {getFieldDecorator('priceNegotiable')(
+            <RadioGroup>
+              <RadioButton value="a">Yes</RadioButton>
+              <RadioButton value="b">Fixed Price</RadioButton>
+            </RadioGroup>
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Home Delivery"
+        >
+          {getFieldDecorator('homeDelivery')(
+            <RadioGroup>
+              <RadioButton value="a">Yes</RadioButton>
+              <RadioButton value="b">No</RadioButton>
+            </RadioGroup>
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Upload Photo"
+        >
+        <div className="clearfix">
+        <Upload
+          action="//jsonplaceholder.typicode.com/posts/"
+          listType="picture-card"
+          fileList={fileList}
+          onPreview={this.handlePreview}
+          onChange={this.handleChangePicture}
+        >
+          {fileList.length >= 3 ? null : uploadButton}
+        </Upload>
+        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+        </Modal>
+      </div>
+      </FormItem>
+
           <FormItem {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">Submit Ad</Button>
           </FormItem>
@@ -138,120 +214,4 @@ class PostNewAd extends React.Component {
   
   const WrappedPostAdForm = Form.create()(PostNewAd);
   
-
-
-
-
-// class PostNewAd extends React.Component {
-//     render () {
-//         return (
-//             <MuiThemeProvider>
-//             <div className="box-layout">
-//                 <Paper className="post-new-ad-container" zDepth={3} >
-//                 <SelectField
-//                     floatingLabelText="Category"
-//                     //value={this.state.value}
-//                     //onChange={this.handleChange}
-//                 >
-//                 <MenuItem value={1} primaryText="AutoMobiles" />
-//                 <MenuItem value={2} primaryText="Music Instrument" />
-//                 <MenuItem value={3} primaryText="Mobile & accessories" />
-//                 <MenuItem value={4} primaryText="Toys" />
-//                 <MenuItem value={5} primaryText="Videogames" />
-//                 </SelectField>
-//                 <br />
-//                 <SelectField
-//                     floatingLabelText="Sub Category"
-//                     //value={this.state.value}
-//                     //onChange={this.handleChange}
-//                 >
-//                 <MenuItem value={1} primaryText="Cars" />
-//                 <MenuItem value={2} primaryText="Bikes" />
-//                 <MenuItem value={3} primaryText="Samsung Phone" />
-//                 <MenuItem value={4} primaryText="Toys" />
-//                 <MenuItem value={5} primaryText="Videogames" />
-//                 </SelectField>
-//                 <br />
-//                 <TextField
-//                 hintText="Enter title here..."
-//                 floatingLabelText="Ad Title*"
-//                 //onChange = {(event,newValue) => this.setState({username:newValue})}
-//               /><br/>
-
-//               <TextField
-//                 floatingLabelText="Description*"
-//                 hintText="Description"
-//                 multiLine={true}
-//                 rows={1}
-//                 rowsMax={10}
-//                 />
-
-//                 <br />
-//                 <SelectField
-//                     floatingLabelText="Days to run ad*"
-//                     //value={this.state.value}
-//                     //onChange={this.handleChange}
-//                 >
-//                 <MenuItem value={1} primaryText="one month" />
-//                 <MenuItem value={2} primaryText="two month" />
-//                 <MenuItem value={3} primaryText="three month" />
-//                 <MenuItem value={4} primaryText="four month" />
-//                 </SelectField>
-//                 <br />
-//                 <TextField
-//                 hintText="Price*"
-//                 floatingLabelText="Price"
-//                 //onChange = {(event,newValue) => this.setState({username:newValue})}
-//                 />
-//                 <br/>
-//                 <div>
-//                 Price Negotiable
-//                 <RadioButtonGroup name="Price Negotiable" defaultSelected="yes">
-//                 <RadioButton
-//                     value="yes"
-//                     label="Yes"
-//                     //style={styles.radioButton}
-//                 />
-//                 <RadioButton
-//                     value="fixed"
-//                     label="Fixed Price"
-//                     //style={styles.radioButton}
-//                 />
-//                 </RadioButtonGroup>
-//                 </div>
-
-//                 <div>
-//                 Home Delivery
-//                 <RadioButtonGroup name="Home Delivery" >
-//                 <RadioButton
-//                     value="yes"
-//                     label="Yes"
-//                     //style={styles.radioButton}
-//                 />
-//                 <RadioButton
-//                     value="no"
-//                     label="no"
-//                     //style={styles.radioButton}
-//                 />
-//                 </RadioButtonGroup>
-//                 </div>
-
-//                 <RaisedButton
-//                     className="image-input-button"
-//                         label="Add picture"
-//                         labelPosition="before"
-//                         //style={styles.button}
-//                         containerElement="label"
-//                     >
-//                     <input type="file"  className="image-input"/>
-//                 </RaisedButton>
-//                 <br/>
-//                 <RaisedButton label="Submit Ad" primary={true}  />
-//                 </Paper>
-//             </div>
-//             </MuiThemeProvider>
-//         );
-//     }
-// };
-
 export default WrappedPostAdForm;
