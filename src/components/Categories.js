@@ -25,7 +25,7 @@ function handleClick(e) {
                     <Menu.Item key="5">Home Catering</Menu.Item>
                     <Menu.Item key="6">Party venu</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub4" title={<span><Icon type="setting" /><span>Automobiles</span></span>}>
+                <SubMenu key="sub3" title={<span><Icon type="car" /><span>Automobiles</span></span>}>
                     <Menu.Item key="9">Car</Menu.Item>
                     <Menu.Item key="10">Bus</Menu.Item>
                     <Menu.Item key="11">Min Bus</Menu.Item>

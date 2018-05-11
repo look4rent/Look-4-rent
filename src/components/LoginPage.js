@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import {  Divider, Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 //material-ui
@@ -59,7 +59,7 @@ export class LoginPage extends Component{
           Or <a href="">register now!</a>
         </FormItem>
       </Form>
-      <hr/>
+      <Divider>OR</Divider>
       <h3>Login With Social Accounts</h3>
      
           <Button className="google-button"
