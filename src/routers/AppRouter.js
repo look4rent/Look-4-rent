@@ -24,7 +24,7 @@ const AppRouter = () => (
         <PublicRoute path="/register" component={RegisterPage} /> 
         <PublicRoute path="/myads" component={MyAds} /> 
         <PublicRoute path="/postad" component={PostNewAd} /> 
-        <PrivateRoute path="/memberarea" component={DashBoardMemberArea} />
+        <PublicRoute path="/memberarea" component={DashBoardMemberArea} />
         <PublicRoute path="/categories" component={Categories} /> 
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <Route component={NotFoundPage} />
