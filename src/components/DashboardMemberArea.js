@@ -1,6 +1,8 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import PostNewAd from './PostNewAd'
+import PostNewAd from './PostNewAd';
+import { connect } from 'react-redux';
+import { startLogout } from '../actions/auth';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -9,10 +11,12 @@ class DashBoardMemberArea extends React.Component {
     state = {
         collapsed: false,
       };
+
       onCollapse = (collapsed) => {
         console.log(collapsed);
         this.setState({ collapsed });
       }
+
       render() {
         return (
           <Layout style={{ minHeight: '100vh' }}>
@@ -53,7 +57,7 @@ class DashBoardMemberArea extends React.Component {
                   <span>Change Password</span>
                 </Menu.Item>
 
-                <Menu.Item key="7">
+                <Menu.Item key="7" onClick={this.props.startLogout}>
                   <Icon type="logout" />
                   <span>Log out</span>
                 </Menu.Item>
@@ -72,5 +76,8 @@ class DashBoardMemberArea extends React.Component {
         );
       }
 }
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => dispatch(startLogout())
+});
 
-export default DashBoardMemberArea;
+export default connect(undefined, mapDispatchToProps)(DashBoardMemberArea);

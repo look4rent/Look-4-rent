@@ -10,7 +10,7 @@ export const PublicRoute = ({
 }) => (
     <Route {...rest} component={(props) => (
       isAuthenticated && history.location.pathname === '/login' ? (
-        <Redirect to="/dashboard" />
+        <Redirect to="/memberarea" />
       ) : (
           <Component {...props} />
         )

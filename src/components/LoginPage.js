@@ -64,11 +64,11 @@ export class LoginPage extends Component{
      
           <Button className="google-button"
 
-            onClick={startLogin}
+            onClick={this.props.startLogin}
           >Login with Google</Button>
             <br/><br/>
           <Button className="facebook-button" 
-            onClick={startLogin}
+            onClick={this.props.startLogin}
             >Login with Facebook</Button>
       </Paper>
     </MuiThemeProvider>
