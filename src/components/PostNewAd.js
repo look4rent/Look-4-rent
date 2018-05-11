@@ -1,10 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 
 
 import { Form, Input, Tooltip, InputNumber, Icon, Cascader,Radio, Select, Row, Col, Checkbox, Button, AutoComplete, Upload, Modal } from 'antd';
