@@ -1,19 +1,10 @@
 @import './base/settings';
 @import './base/base';
-<<<<<<< HEAD
-@import './base/login';
-@import './base/register';
-@import './base/fullAd.scss';
-@import './components/post-new-ad';
-@import './components/_my-ads.scss';
-@import './components/ant-login';
-@import '~antd/dist/antd.css';
-=======
 @import './components/login';
 @import './components/register';
+@import './base/fullAd.scss';
 @import './components/post-new-ad';
 @import './components/my-ads';
 @import './components/home-page';
+@import './components/home-footer';
 @import '~antd/dist/antd.css';
-@import './components/home-footer'
->>>>>>> cdc5db5e4e1f192dd39cb4ea1b3867166fa1a0d7
