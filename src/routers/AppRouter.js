@@ -12,6 +12,8 @@ import HomePage from '../components/HomePage';
 import PostNewAd from '../components/PostNewAd';
 import MyAds from '../components/MyAds';
 import DashBoardMemberArea from '../components/DashboardMemberArea';
+import PartialAd from '../components/partialAd';
+import FullAd from '../components/fullAd';
 
 export const history = createHistory();
 
@@ -27,6 +29,8 @@ const AppRouter = () => (
         <PrivateRoute path="/memberarea" component={DashBoardMemberArea} />
         <PublicRoute path="/categories" component={Categories} /> 
         <PrivateRoute path="/dashboard" component={DashboardPage} />
+        <PublicRoute path="/partialAd" component={PartialAd} />
+        <PublicRoute path="/fullAd" component={FullAd} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
