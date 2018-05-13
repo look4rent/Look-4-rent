@@ -37,8 +37,8 @@ const HomeFooter = () => (
 
 <div className="footer-right">
 
-    <p classNameName="footer-company-about">
-        <div>About the company</div>
+    <p className="footer-company-about">
+        
         Want to rent your stuff? 
     </p>
 
