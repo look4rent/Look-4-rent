@@ -3,25 +3,19 @@ import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import HomeHeader from './HomeHeader';
+import Categories from './Categories';
+import HomeFooter from './HomeFooter';
 
-const HomePage = () => (
-  <MuiThemeProvider >
-  <div>
-    <AppBar
-    className='appBar'
-      title="Look 4 Rent"
-      iconClassNameRight="muidocs-icon-navigation-expand-more"
-      >
-    <TextField
-      className="appBar__search"
-      hintText="Search here..."
-      fullWidth={true} />
-    </AppBar>
-
-    <p>Hello World!!!</p>
-    </div>
-    </MuiThemeProvider>
-);
+const HomePage = () =>(
+      <div>
+       <HomeHeader/>
+       <div>
+         <Categories/>
+       </div>
+        <HomeFooter />
+      </div>
+  );
 
 // const HomePage = () => (
 //   <div>
