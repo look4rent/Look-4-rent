@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 //Ant-Design
 import { Card } from 'antd';
+import { Rate } from 'antd';
 
 //COMPONENTS
 
@@ -28,6 +29,7 @@ const partialAd = () =>{
                     <h3>Sunny Cruiser Bicycle</h3>
                     <h4>Sukedhara</h4>
                     <p>Rs. 1000</p>
+                    <Rate disabled defaultValue={4} />
                 </Card>
             </div>
         </Link>

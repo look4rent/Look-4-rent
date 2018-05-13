@@ -18,12 +18,11 @@ const fullAd = () =>{
                         style={{ width: 300 }}
                         cover={<img alt="example" src="./images/Sunny Cruiser Bicycle 001.jpg" />}
                     ></Card>
-                    kjafkjkdsjkjndsjndfkndkfsnkn
                 </div>
                 <div className = "fullAd_data">
                     <h2>Sunny Cruiser Bicycle</h2>
                     <p>Location: Sukedhara</p>
-                    <div><Rate/></div>
+                    <div><Rate disabled defaultValue={4} /></div>
                     <h1>NRs 1050</h1>
                     <p>Phone: 9843000000</p>
                 </div>
