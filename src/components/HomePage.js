@@ -6,14 +6,22 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import HomeHeader from './HomeHeader';
 import Categories from './Categories';
 import HomeFooter from './HomeFooter';
+import PartialAd from './partialAd';
 
 const HomePage = () =>(
-      <div>
-       <HomeHeader/>
-       <div>
-         <Categories/>
-       </div>
-        <HomeFooter />
+      <div className = "Hmain">
+        <div className = "Hheader">
+          <HomeHeader/>
+        </div>
+        <div className = "Hcategories">
+          <Categories/>
+        </div>
+        <div className = "HpartialAd">
+          <PartialAd/>
+        </div>
+        <div className = "Hfooter">
+          <HomeFooter/>
+        </div>
       </div>
   );
 
