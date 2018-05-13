@@ -3,8 +3,9 @@ import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import HomeHeader from './HomeHeader'
-import Categories from './Categories'
+import HomeHeader from './HomeHeader';
+import Categories from './Categories';
+import HomeFooter from './HomeFooter';
 
 const HomePage = () =>(
       <div>
@@ -12,7 +13,7 @@ const HomePage = () =>(
        <div>
          <Categories/>
        </div>
-        
+        <HomeFooter />
       </div>
   );
 
