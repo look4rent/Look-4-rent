@@ -12,7 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 
-
+console.log("Login Page Open");
 export class LoginPage extends Component{
   handleSubmit = (e) => {
     e.preventDefault();
