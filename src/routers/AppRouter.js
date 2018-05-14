@@ -14,6 +14,7 @@ import MyAds from '../components/MyAds';
 import DashBoardMemberArea from '../components/DashboardMemberArea';
 import PartialAd from '../components/partialAd';
 import FullAd from '../components/fullAd';
+import Slider_category from '../components/Slider_category';
 
 export const history = createHistory();
 
@@ -31,6 +32,7 @@ const AppRouter = () => (
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <PublicRoute path="/partialAd" component={PartialAd} />
         <PublicRoute path="/fullAd" component={FullAd} />
+        <PublicRoute path="/Slider_category" component={Slider_category} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

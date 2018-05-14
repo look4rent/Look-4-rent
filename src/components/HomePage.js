@@ -6,7 +6,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import HomeHeader from './HomeHeader';
 import Categories from './Categories';
 import HomeFooter from './HomeFooter';
-import PartialAd from './partialAd';
+import Slider_category from './Slider_category';
 
 const HomePage = () =>(
       <div className = "Hmain">
@@ -16,8 +16,8 @@ const HomePage = () =>(
         <div className = "Hcategories">
           <Categories/>
         </div>
-        <div className = "HpartialAd">
-          <PartialAd/>
+        <div className = "HSlider_category">
+          <Slider_category/>
         </div>
         <div className = "Hfooter">
           <HomeFooter/>
