@@ -4,6 +4,8 @@ import PostNewAd from "./PostNewAd";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import PartialAd from "./PartialAd";
+import MemberHeader from "./MemberHeader";
+
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -104,7 +106,7 @@ class DashBoardMemberArea extends React.Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: "#fff", padding: 0 }} />
+          <MemberHeader/>
           <Content style={{ margin: "0 16px" }}>
             {this.content()}
           </Content>
