@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import ReactImageMagnify from "react-image-magnify";
+import { Carousel } from "react-responsive-carousel";
 
 //Ant_Design
 import { Rate } from "antd";
@@ -18,7 +19,7 @@ const fullAd = () => {
     <div className="fullAd_wrapper">
       <div className="fullAdCard_wrapper">
         <div className="fullAd_card">
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             <div>
               <ReactImageMagnify
                 {...{
@@ -78,7 +79,15 @@ const fullAd = () => {
                 }}
               />
             </div>
-          </Slider>
+          </Slider> */}
+          <Carousel showArrows={true} showThumbs={true}>
+            <div>
+              <img src="./images/Sunny Cruiser Bicycle 001.jpg" />
+            </div>
+            <div>
+              <img src="./images/Sunny Cruiser Bicycle 001.jpg" />
+            </div>
+          </Carousel>
         </div>
       </div>
 
