@@ -4,6 +4,7 @@ import PostNewAd from "./PostNewAd";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import PartialAd from "./PartialAd";
+import MyAds from './MyAds';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -33,7 +34,7 @@ class DashBoardMemberArea extends React.Component {
       case '2':  
         return(<div><PostNewAd/></div>);
       case '3':  
-        return(<div><PartialAd/></div>);
+        return(<div><MyAds/></div>);
       case '4':  
         return(<div><h1>WatchList</h1></div>);
       case '5':  
