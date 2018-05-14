@@ -1,38 +1,50 @@
-.fullAd_wrapper{
-    //background-color: blue;
-    width: 800px;
-    margin: 0 auto;
+.fullAd_wrapper {
+  //background-color: blue;
+  width: 800px;
+  margin: 0 auto;
 }
 
-.fullAdCard_wrapper{
-    //background-color: aquamarine;
-    margin: 10px;
+.fullAdCard_wrapper {
+  //background-color: aquamarine;
+  margin: 10px;
 }
 
-.fullAd_card{
-    //background-color: brown;
-    width: 300px;
-    height: 360px;
-    margin: 20px;
-    float: left;
+.fullAd_card {
+  //background-color: brown;
+  width: 300px;
+  height: 360px;
+  margin: 20px;
+  float: left;
 }
 
-.fullAd_data{
-    //background-color: blueviolet;
-    width: 400px;
-    height: 360px;
-    margin: 20px;
-    float: left;
+.fullAd_data {
+  //background-color: blueviolet;
+  width: 400px;
+  height: 360px;
+  margin: 20px;
+  float: left;
 }
 
-.fullAd_description{
-    clear: both;
-    //background-color: azure;
-    margin: 30px;
+.fullAd_description {
+  clear: both;
+  //background-color: azure;
+  padding-top: 2.0rem;
+  margin: 30px;
 }
 
-.fullAd_description h2{
-     background-color: cadetblue;
-     text-align: center;
-     height: 40px;
+.fullAd_description h2 {
+  background-color: cadetblue;
+  text-align: center;
+  height: 40px;
+}
+
+.partialAds_Comp {
+  background-color: blue;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.partialAds_Comp div {
+  float: left;
+  margin: 3px;
 }

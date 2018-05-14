@@ -1,25 +1,24 @@
-.header_container{
-    background: #38A9DE;
-    display:flex;
-    height : 70px;
+.header_container {
+  background: #38a9de;
+  display: flex;
+  height: 70px;
 }
 .header_container .search {
-    margin-left :10%;
-    width:40%;
-    height: 40px;
-    margin-top:15px;
+  margin-left: 10%;
+  width: 40%;
+  height: 40px;
+  margin-top: 15px;
 }
 
-.header_container .login-popup-container{
-    display: inline-table;
-    right: 0%;
+.header_container .login-popup-container {
+  display: inline-table;
+  right: 0%;
 }
-.login-button{
-    margin-left: 10%;
-    margin-top:18px;
+.login-button {
+  margin-left: 10%;
+  margin-top: 18px;
 }
 
-.logo-image{
-    width: 200px;
-    
+.logo-image {
+  width: 200px;
 }

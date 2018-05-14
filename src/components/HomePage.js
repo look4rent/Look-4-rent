@@ -6,14 +6,22 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import HomeHeader from './HomeHeader';
 import Categories from './Categories';
 import HomeFooter from './HomeFooter';
+import Slider_category from './Slider_category';
 
 const HomePage = () =>(
-      <div>
-       <HomeHeader/>
-       <div>
-         <Categories/>
-       </div>
-        <HomeFooter />
+      <div className = "Hmain">
+        <div className = "Hheader">
+          <HomeHeader/>
+        </div>
+        <div className = "Hcategories">
+          <Categories/>
+        </div>
+        <div className = "HSlider_category">
+          <Slider_category/>
+        </div>
+        <div className = "Hfooter">
+          <HomeFooter/>
+        </div>
       </div>
   );
 
