@@ -12,8 +12,9 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
 
-export class LoginPage extends Component {
-  handleSubmit = e => {
+console.log("Login Page Open");
+export class LoginPage extends Component{
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {

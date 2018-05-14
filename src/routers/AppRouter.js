@@ -12,7 +12,7 @@ import HomePage from '../components/HomePage';
 import PostNewAd from '../components/PostNewAd';
 import MyAds from '../components/MyAds';
 import DashBoardMemberArea from '../components/DashboardMemberArea';
-import PartialAd from '../components/partialAd';
+import PartialAd from '../components/PartialAd';
 import FullAd from '../components/fullAd';
 import Slider_category from '../components/Slider_category';
 
