@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from "react-slick";
+import PartialAd from './PartialAd';
 
 
 //Ant_Design
@@ -45,49 +46,19 @@ export default class Slider_category extends Component {
                 <div className = "sliderC_items">
                     <Slider ref={c => (this.slider = c)} {...settings}>
                         <div>
-                            <Card
-                                hoverable
-                                style={{ width: 240 }}
-                                cover={<img alt="example" src="./images/Sunny Cruiser Bicycle 001.jpg" />}
-                            >
-                                <h3>Bicycle</h3>
-                            </Card>
+                            <PartialAd />
                         </div>
                         <div>
-                            <Card
-                                hoverable
-                                style={{ width: 240 }}
-                                cover={<img alt="example" src="./images/Sunny Cruiser Bicycle 001.jpg" />}
-                            >
-                                <h3>Bike</h3>
-                            </Card>
+                        <PartialAd />
                         </div>
                         <div>
-                            <Card
-                                hoverable
-                                style={{ width: 240 }}
-                                cover={<img alt="example" src="./images/Sunny Cruiser Bicycle 001.jpg" />}
-                            >
-                                <h3>Bus</h3>
-                            </Card>
+                        <PartialAd />
                         </div>
                         <div>
-                            <Card
-                                hoverable
-                                style={{ width: 240 }}
-                                cover={<img alt="example" src="./images/Sunny Cruiser Bicycle 001.jpg" />}
-                            >
-                                <h3>Bolero</h3>
-                            </Card>
+                        <PartialAd />
                         </div>
                         <div>
-                            <Card
-                                hoverable
-                                style={{ width: 240 }}
-                                cover={<img alt="example" src="./images/Sunny Cruiser Bicycle 001.jpg" />}
-                            >
-                                <h3>mini-Van</h3>
-                            </Card>
+                        <PartialAd />
                         </div>
                     </Slider>
                 </div>
