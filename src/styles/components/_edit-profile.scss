@@ -1,0 +1,61 @@
+
+
+.edit-profile-container-name-form{
+    margin-left:10%;
+    margin-right:10%;
+    background: cadetblue;
+
+}
+
+.edit-profile-container-name-form h3{
+    margin:10px;
+    clear: both;
+
+}
+
+.edit-profile-container-name-form .form-container{
+    position: relative;
+    padding:20px;
+    margin-left:30%;
+}
+.edit-profile-name-form-button{
+    margin:20px;
+    margin-left: 8%;
+
+    
+}
+
+.edit-profile-name-form-button-change{
+    margin-right:20px;
+}
+
+
+.edit-profile-container-name-title a{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left:10%;
+    margin-right:10%;
+    
+}
+
+.edit-profile-container-name-title a h3{
+    float: left;
+    margin:10px;
+}
+
+.edit-profile-container-name-title a p{
+    margin-left:30px;
+    margin:12px;
+    color: black;
+}
+
+.edit-profile-container-name-title a span{
+    margin:12px;
+    right: 0%;
+    color: black;
+}
+
+.edit-profile-container-name-title:hover{
+    background:rgb(224, 217, 217);
+}

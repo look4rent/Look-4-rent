@@ -6,6 +6,7 @@ import { startLogout } from "../actions/auth";
 import PartialAd from "./PartialAd";
 import MemberHeader from "./MemberHeader";
 import MyAds from './MyAds';
+import Editprofile from './EditProfile';
 
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -40,7 +41,7 @@ class DashBoardMemberArea extends React.Component {
       case '4':  
         return(<div><h1>WatchList</h1></div>);
       case '5':  
-        return(<div><h4>Edit profile</h4></div>);
+        return(<div><h4><Editprofile/></h4></div>);
       case '6':  
         return(<div><h4>ChangePassword</h4></div>);
       default:
