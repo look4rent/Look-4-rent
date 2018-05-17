@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Divider, Select, Form, Input, Button ,Icon} from 'antd';
 
+import Paper from "material-ui/Paper";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 const FormItem = Form.Item;
 
 function hasErrors(fieldsError) {
@@ -101,8 +103,9 @@ function hasErrors(fieldsError) {
           );
         console.log(this.state);
         return (
-            
-            <div className="edit-profile-container">
+            <MuiThemeProvider>
+
+            <Paper className="edit-profile-container"><Divider/>
                 {
                     visible==='name'
                     ?
@@ -268,7 +271,8 @@ function hasErrors(fieldsError) {
                         </a>
                     </div>
                 }<Divider/>
-            </div>
+            </Paper>
+            </MuiThemeProvider>    
         )
     }
 }

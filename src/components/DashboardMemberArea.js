@@ -41,7 +41,7 @@ class DashBoardMemberArea extends React.Component {
       case '4':  
         return(<div><h1>WatchList</h1></div>);
       case '5':  
-        return(<div><h4><Editprofile/></h4></div>);
+        return(<div><Editprofile/></div>);
       case '6':  
         return(<div><h4>ChangePassword</h4></div>);
       default:
