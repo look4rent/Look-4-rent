@@ -2,10 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import Header from "../components/Header";
+import DashboardMemberArea from "../components/DashboardMemberArea";
 
 export const PrivateRoute = ({
   isAuthenticated,
   component: Component,
+  sideNavKey,
   ...rest
 }) => (
   <Route
@@ -13,8 +15,9 @@ export const PrivateRoute = ({
     component={props =>
       isAuthenticated ? (
         <div>
-          <Header />
-          <Component {...props} />
+          <DashboardMemberArea sideNavKey={sideNavKey}>
+            <Component {...props}/>
+          </DashboardMemberArea>
         </div>
       ) : (
         <Redirect to="/" />
@@ -22,7 +25,6 @@ export const PrivateRoute = ({
     }
   />
 );
-
 const mapStateToProps = state => ({
   isAuthenticated: !!state.auth.uid
 });
