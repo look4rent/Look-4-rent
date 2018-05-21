@@ -35,11 +35,11 @@ const AppRouter = () => (
         <PublicRoute path="/SliderCategory" component={SliderCategory} />
         
         {/* Private Routes Section */}
-        <PrivateRoute path="/dashboard" component={Dashboard}/>
-        <PrivateRoute path="/postad" component={PostNewAd}/>
-        <PrivateRoute path="/myads" component={MyAds}/>
-        <PrivateRoute path="/watchlist" component={Watchlist}/>
-        <PrivateRoute path="/editprofile" component={EditProfile}/>
+        <PrivateRoute path="/dashboard" component={Dashboard} sideNavKey='1'/>
+        <PrivateRoute path="/postad" component={PostNewAd} sideNavKey='2'/>
+        <PrivateRoute path="/myads" component={MyAds} sideNavKey='3'/>
+        <PrivateRoute path="/watchlist" component={Watchlist} sideNavKey='4'/>
+        <PrivateRoute path="/editprofile" component={EditProfile} sideNavKey='5'/>
 
         <Route component={NotFoundPage} />
       </Switch>
