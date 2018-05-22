@@ -1,6 +1,6 @@
 import React from "react";
-//import { connect } from 'react-redux';
-//import { startLogin } from '../actions/auth';
+import { connect } from 'react-redux';
+import { onRegister } from '../actions/auth';
 
 //material-ui
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
@@ -29,13 +29,22 @@ const AutoCompleteOption = AutoComplete.Option;
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
-    autoCompleteResult: []
+    register:{}
   };
+  
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
+      const register= {
+        Fullname:values.Fullname,
+        email:values.email,
+        phone:values.phone,
+        password:values.password
+      };
       if (!err) {
-        console.log("Received values of form: ", values);
+        this.setState({register});
+        this.props.onRegister(register);
+        console.log("Received values of form: ",this.state.register);
       }
     });
   };
@@ -60,6 +69,7 @@ class RegistrationForm extends React.Component {
   };
 
   render() {
+    console.log(this.state.confirmDirty);
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
 
@@ -170,27 +180,7 @@ class RegistrationForm extends React.Component {
               )}
             </FormItem>
 
-            <FormItem
-              {...formItemLayout}
-              label="Captcha"
-              extra="We must make sure that your are a human."
-            >
-              <Row gutter={8}>
-                <Col span={12}>
-                  {getFieldDecorator("captcha", {
-                    rules: [
-                      {
-                        required: true,
-                        message: "Please input the captcha you got!"
-                      }
-                    ]
-                  })(<Input />)}
-                </Col>
-                <Col span={12}>
-                  <Button>Get captcha</Button>
-                </Col>
-              </Row>
-            </FormItem>
+           
             <FormItem {...tailFormItemLayout}>
               {getFieldDecorator("agreement", {
                 valuePropName: "checked"
@@ -213,4 +203,8 @@ class RegistrationForm extends React.Component {
 }
 
 const RegisterPage = Form.create()(RegistrationForm);
-export default RegisterPage;
+
+const mapDispatchToProps = (dispatch) => ({
+  onRegister: (register) => dispatch(onRegister(register))
+});
+export default connect(undefined, mapDispatchToProps)(RegisterPage);

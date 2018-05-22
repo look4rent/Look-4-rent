@@ -25,26 +25,28 @@ class DashBoardMemberArea extends React.Component {
   };
 
   componentWillMount = () => {
-    // switch (history.location.pathname) {
-    //   case "/dashboard":
-    //     return this.setState({ selectedNavItem: "1" });
-    //   case "/postad":
-    //     return this.setState({ selectedNavItem: "2" });
-    //   case "/myads":
-    //     return this.setState({ selectedNavItem: "3" });
-    //   case "/watchlist":
-    //     return this.setState({ selectedNavItem: "4" });
-    //   case "/editprofile":
-    //     return this.setState({ selectedNavItem: "5" });
-    // }
+     switch (history.location.pathname) {
+       case "/dashboard":
+         return this.setState({ selectedNavItem: "1" });
+       case "/postad":
+         return this.setState({ selectedNavItem: "2" });
+       case "/myads":
+         return this.setState({ selectedNavItem: "3" });
+       case "/watchlist":
+         return this.setState({ selectedNavItem: "4" });
+       case "/editprofile":
+         return this.setState({ selectedNavItem: "5" });
+     }
 
 
-    // this.setState(prevState => {
-    //   return {
-    //     ...prevState,
-    //     selectedNavItem: this.props.selectedNavItem
-    //   };
-    // });
+
+    //  this.setState(prevState => {
+    //    return {
+    //      ...prevState,
+    //      selectedNavItem: this.state.selectedNavItem
+    //    };
+    //  });
+
   };
 
   handleSideNavClick = e => {
@@ -85,7 +87,7 @@ class DashBoardMemberArea extends React.Component {
           <div className="logo" />
           <Menu
             defaultSelectedKeys={[
-              this.props.selectedNavItem ? this.props.selectedNavItem : "1"
+              this.props.selectedNavItem ? this.state.selectedNavItem : "1"
             ]}
             mode="inline"
           >

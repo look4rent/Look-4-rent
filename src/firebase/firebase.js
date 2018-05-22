@@ -10,8 +10,9 @@ const config = {
 };
 
 firebase.initializeApp(config);
+// Required for side-effects
+require("firebase/firestore");
 
-const database = firebase.database();
+const database = firebase.firestore();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-
 export { firebase, googleAuthProvider, database as default };
