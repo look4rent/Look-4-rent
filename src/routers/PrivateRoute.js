@@ -15,8 +15,8 @@ export const PrivateRoute = ({
     component={props =>
       isAuthenticated ? (
         <div>
-          <DashboardMemberArea >
-            <Component {...props}/>
+          <DashboardMemberArea sideNavKey={sideNavKey}>
+            <Component />
           </DashboardMemberArea>
         </div>
       ) : (
