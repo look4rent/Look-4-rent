@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
+import {Link} from 'react-router-dom';
 
 import { Divider, Form, Icon, Input, Button, Checkbox } from "antd";
 const FormItem = Form.Item;
@@ -74,7 +75,7 @@ export class LoginPage extends Component{
               >
                 Log in
               </Button>
-              Or <a href="">register now!</a>
+              Or <Link to="/register">register now!</Link>
             </FormItem>
           </Form>
           <Divider>OR</Divider>
