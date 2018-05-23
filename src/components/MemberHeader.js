@@ -1,18 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import { Avatar } from 'antd';
+import { Avatar } from "antd";
 
-const MemberHeader =() => {
+const MemberHeader = (props) => {
   return (
     <div className="member-header-container">
-      <h1
-      className="member-header-text"
-      >Account Settings</h1>
-      <h5>Username</h5><Avatar 
-      size="large" icon="user"
-      className="member-header-avatar" />
+      <h1 className="member-header-text">{props.header}</h1>
+      <div className="avatar-container">
+      <Avatar size="large" icon="user" className="member-header-avatar" />
+      </div>
+      
     </div>
-  )
-}
+  );
+};
 
 export default MemberHeader;

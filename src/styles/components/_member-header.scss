@@ -1,25 +1,19 @@
 .member-header-container{
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: rgb(111, 223, 238);
+    position: relative;
+    padding: 1.0rem 3.0rem;
+    background: rgb(2, 34, 63);
 }
-.member-header-container h5{
-    padding:30px;
-    padding-right: 0%;
-    font-size: 20px;
-    color:#fff;
-}
+
 .member-header-text{
-    width:80%;
-    padding:10px;
-    box-sizing: border-box; 
     text-align: center;
     color:#fff;
+    margin: 0;
 }
 
 .member-header-avatar{
+    position: absolute;
+    right: 3.0rem;
+    top: 1.0rem;
     width:50px;
     height: 50px;
-    margin:22px;
 }

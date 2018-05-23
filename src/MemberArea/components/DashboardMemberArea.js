@@ -11,7 +11,8 @@ const SubMenu = Menu.SubMenu;
 class DashBoardMemberArea extends React.Component {
   state = {
     collapsed: false,
-    selectedNavItem: "1"
+    selectedNavItem: "1",
+    shownPageTitle: ""
   };
   onCollapse = collapsed => {
     this.setState({ collapsed });
@@ -24,6 +25,19 @@ class DashBoardMemberArea extends React.Component {
         selectedNavItem: this.props.sideNavKey
       };
     });
+
+    switch(this.props.sideNavKey) {
+      case '1':
+        return this.setState(prevState => {return {...prevState, shownPageTitle: 'Dashboard'}});
+        case '2':
+        return this.setState(prevState => {return {...prevState, shownPageTitle: 'Post Ad'}});
+        case '3':
+        return this.setState(prevState => {return {...prevState, shownPageTitle: 'My Ads'}});
+        case '4':
+        return this.setState(prevState => {return {...prevState, shownPageTitle: 'Watchlist'}});
+        case '5':
+        return this.setState(prevState => {return {...prevState, shownPageTitle: 'Edit Profile'}});
+    }
   };
   
 
@@ -100,7 +114,7 @@ class DashBoardMemberArea extends React.Component {
           </Menu>
         </Sider>
         <Layout>
-          <MemberHeader />
+          <MemberHeader header={this.state.shownPageTitle}/>
           <Content style={{ margin: "0 16px" }}>{this.props.children}</Content>
           <Footer style={{ textAlign: "center" }}>
             Ant Design ©2016 Created by Deep Bhai

@@ -25,6 +25,49 @@ const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
+const options = [
+  {
+    value: "AutoMobiles",
+    label: "AutoMobiles",
+    children: [
+      {
+        value: "Car",
+        label: "car",
+        children: [
+          {
+            value: "Suzuki",
+            label: "suzuki"
+          },
+          {
+            value: "Ford",
+            label: "ford"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: "Music Instrument",
+    label: "music",
+    children: [
+      {
+        value: "Guitar",
+        label: "guitar",
+        children: [
+          {
+            value: "Eletric",
+            label: "electric"
+          },
+          {
+            value: "Acoustic",
+            label: "acoustic"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 class PostNewAd extends React.Component {
   state = {
     confirmDirty: false,
@@ -45,19 +88,21 @@ class PostNewAd extends React.Component {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
-  handleChange = value => {
-    console.log(`selected ${value}`);
-  };
-
   handleBlur = e => {
     console.log("blur");
   };
+  handleCancel = () => this.setState({ previewVisible: false });
 
-  handleFocus = e => {
-    console.log("focus");
+  onChange = (value, selectedOptions) => {
+    console.log(value, selectedOptions);
   };
 
-  handleCancel = () => this.setState({ previewVisible: false });
+  filter = (inputValue, path) => {
+    return path.some(
+      option =>
+        option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
+    );
+  };
 
   handlePreview = file => {
     this.setState({
@@ -103,37 +148,18 @@ class PostNewAd extends React.Component {
     );
 
     return (
-      <MuiThemeProvider>
-        <Paper className="post-ad-form-container" zDepth={3}>
-          <h1>Post Ad Form</h1>
+          <div className='postad-form-container'>
           <Form onSubmit={this.handleSubmit}>
             <FormItem {...formItemLayout} label="Category">
-              {getFieldDecorator("category", {
+              {getFieldDecorator("adCategory", {
                 rules: [{ required: true, message: "Please select category" }]
               })(
-                <Select
-                  size="large"
-                  showSearch
-                  style={{ width: 200 }}
+                <Cascader
+                  options={options}
+                  onChange={this.onChange}
                   placeholder="Category"
-                  optionFilterProp="children"
-                  onChange={this.handleChange}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
-                  filterOption={(input, option) =>
-                    option.props.children
-                      .toLowerCase()
-                      .indexOf(input.toLowerCase()) >= 0
-                  }
-                >
-                  <Option value="AutoMobiles">AutoMobiles</Option>
-                  <Option value="Music Instrument">Music Instrument</Option>
-                  <Option value="Mobile & accessories">
-                    Mobile & accessories
-                  </Option>
-                  <Option value="Toys">Toys</Option>
-                  <Option value="Video Games">Video Games</Option>
-                </Select>
+                  showSearch={ this.filter }
+                />
               )}
             </FormItem>
 
@@ -206,8 +232,7 @@ class PostNewAd extends React.Component {
               </Button>
             </FormItem>
           </Form>
-        </Paper>
-      </MuiThemeProvider>
+          </div>
     );
   }
 }
