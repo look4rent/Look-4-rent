@@ -19,6 +19,7 @@ export class LoginPage extends Component{
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        
         console.log("Received values of form: ", values);
       }
     });
@@ -27,8 +28,8 @@ export class LoginPage extends Component{
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <MuiThemeProvider>
-        <Paper className="login-form-container" zDepth={3}>
+      
+        <div className="login-form-container" >
           <Form onSubmit={this.handleSubmit} className="login-form">
             <h1 className="login-form-container__title">Login</h1>
             <FormItem>
@@ -89,8 +90,8 @@ export class LoginPage extends Component{
           <Button className="facebook-button" onClick={this.props.startLogin}>
             Login with Facebook
           </Button>
-        </Paper>
-      </MuiThemeProvider>
+        </div>
+      
     );
   }
 }
