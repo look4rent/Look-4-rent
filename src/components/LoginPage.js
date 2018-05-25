@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { startLogin } from "../actions/auth";
+import { startLogin,googleLogin } from "../actions/auth";
 import {Link} from 'react-router-dom';
 
 import { Divider, Form, Icon, Input, Button, Checkbox } from "antd";
@@ -19,7 +19,7 @@ export class LoginPage extends Component{
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        
+        this.props.startLogin(values);
         console.log("Received values of form: ", values);
       }
     });
@@ -33,16 +33,16 @@ export class LoginPage extends Component{
           <Form onSubmit={this.handleSubmit} className="login-form">
             <h1 className="login-form-container__title">Login</h1>
             <FormItem>
-              {getFieldDecorator("userName", {
+              {getFieldDecorator("email", {
                 rules: [
-                  { required: true, message: "Please input your username!" }
+                  { required: true, message: "Please input your Email!" }
                 ]
               })(
                 <Input
                   prefix={
-                    <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                    <Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />
                   }
-                  placeholder="Username"
+                  placeholder="Email"
                 />
               )}
             </FormItem>
@@ -82,12 +82,12 @@ export class LoginPage extends Component{
           <Divider>OR</Divider>
           <h3>Login With Social Accounts</h3>
 
-          <Button className="google-button" onClick={this.props.startLogin}>
+          <Button className="google-button" onClick={this.props.googleLogin}>
             Login with Google
           </Button>
           <br />
           <br />
-          <Button className="facebook-button" onClick={this.props.startLogin}>
+          <Button className="facebook-button" onClick={this.props.googleLogin}>
             Login with Facebook
           </Button>
         </div>
@@ -97,7 +97,8 @@ export class LoginPage extends Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-  startLogin: () => dispatch(startLogin())
+  startLogin: (login) => dispatch(startLogin(login)),
+  googleLogin: () => dispatch(googleLogin())
 });
 const Login = Form.create()(LoginPage);
 

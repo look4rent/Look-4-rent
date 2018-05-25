@@ -33,9 +33,10 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));
     renderApp();
-    if (history.location.pathname === '/login') {
+    if (history.location.pathname === '/login' || history.location.pathname === '/register' ) {
       history.push('/dashboard');
     }
+
   } else {
     store.dispatch(logout());
     renderApp();

@@ -39,11 +39,11 @@ class RegistrationForm extends React.Component {
         Fullname:values.Fullname,
         email:values.email,
         phone:values.phone,
-        password:values.password
       };
       if (!err) {
         this.setState({register});
-        this.props.onRegister(register);
+        const password = 
+        this.props.onRegister(register,values.password);
         console.log("Received values of form: ",this.state.register);
       }
     });
@@ -180,7 +180,7 @@ class RegistrationForm extends React.Component {
               )}
             </FormItem>
 
-           
+          
             <FormItem {...tailFormItemLayout}>
               {getFieldDecorator("agreement", {
                 valuePropName: "checked"
@@ -205,6 +205,6 @@ class RegistrationForm extends React.Component {
 const RegisterPage = Form.create()(RegistrationForm);
 
 const mapDispatchToProps = (dispatch) => ({
-  onRegister: (register) => dispatch(onRegister(register))
+  onRegister: (register,password) => dispatch(onRegister(register,password))
 });
 export default connect(undefined, mapDispatchToProps)(RegisterPage);

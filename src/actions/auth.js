@@ -5,11 +5,26 @@ export const login = uid => ({
   uid
 });
 
-export const startLogin = () => {
+export const startLogin = (login) => {
+  return () => {
+    const {email,password}=login;
+    console.log(email,password)
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage)
+      // ...
+    });
+  };
+};
+
+export const googleLogin = () => {
   return () => {
     return firebase.auth().signInWithPopup(googleAuthProvider);
   };
 };
+
 
 export const logout = () => ({
   type: "LOGOUT"
@@ -21,11 +36,11 @@ export const startLogout = () => {
   };
 };
 
-export const onRegister = register =>{
+export const onRegister = (register ,password)=>{
   return () => {
     const email=register.email;
-    const password=register.password;
-    console.log(email);
+    // const password=register.password;
+    console.log(password);
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       console.log(error.message)
     });
