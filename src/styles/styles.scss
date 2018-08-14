@@ -2,7 +2,9 @@
 @import "./base/base";
 @import "./components/login";
 @import "./components/register";
-@import "./base/fullAd.scss";
+@import "./components/fullAd.scss";
+@import './components/_sliderCategory';
+@import './components/_filter.scss';
 @import "./components/post-new-ad";
 @import "./components/my-ads";
 @import "./components/home-page";
@@ -10,7 +12,6 @@
 @import "./components/home";
 @import "./components/member-header";
 @import "~antd/dist/antd.css";
-@import './base/_SliderCategory';
 @import './components/edit-profile';
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";

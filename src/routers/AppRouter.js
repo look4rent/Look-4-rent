@@ -10,6 +10,7 @@ import PublicRoute from "./PublicRoute";
 import HomePage from "../components/HomePage";
 import PartialAd from "../components/PartialAd";
 import FullAd from "../components/fullAd";
+import Filter from "../components/Filter";
 import SliderCategory from "../components/SliderCategory";
 
 //Member Area Components
@@ -18,6 +19,7 @@ import PostNewAd from "../MemberArea/components/PostNewAd";
 import MyAds from "../MemberArea/components/MyAds";
 import EditProfile from "../MemberArea/components/EditProfile";
 import Watchlist from "../MemberArea/components/Watchlist";
+import filter from "../components/Filter";
 
 export const history = createHistory();
 
@@ -33,6 +35,7 @@ const AppRouter = () => (
         <PublicRoute path="/partialAd" component={PartialAd} />
         <PublicRoute path="/fullAd" component={FullAd} />
         <PublicRoute path="/SliderCategory" component={SliderCategory} />
+        <PublicRoute path="/filter" component={filter} />
         
         {/* Private Routes Section */}
         <PrivateRoute path="/dashboard" component={Dashboard} sideNavKey='1'/>
